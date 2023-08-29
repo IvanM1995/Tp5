@@ -47,12 +47,22 @@ public class Tp5 extends javax.swing.JFrame {
         jLabel1.setText("Categoria:");
 
         jcCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ropa", "Alimentos", "Electrodomesticos", "Limpieza" }));
+        jcCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcCategoriaActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nombre:");
 
+        jtNombre.setEnabled(false);
+
         jLabel3.setText("Precio:");
 
+        jtPrecio.setEnabled(false);
+
         btAgregar.setText("Agregar");
+        btAgregar.setEnabled(false);
         btAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAgregarActionPerformed(evt);
@@ -152,6 +162,11 @@ public class Tp5 extends javax.swing.JFrame {
     
     }//GEN-LAST:event_btAgregarActionPerformed
 
+    private void jcCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcCategoriaActionPerformed
+        // TODO add your handling code here:
+        activarCampos();
+    }//GEN-LAST:event_jcCategoriaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -205,5 +220,10 @@ public class Tp5 extends javax.swing.JFrame {
      modelo.addColumn("Categoria: ");
      modelo.addColumn("Precio: ");
      jtbProductos.setModel(modelo);
- }
+    }
+    private void activarCampos(){
+        jtNombre.setEnabled(true);
+        jtPrecio.setEnabled(true);
+        btAgregar.setEnabled(true);
+    }
 }
